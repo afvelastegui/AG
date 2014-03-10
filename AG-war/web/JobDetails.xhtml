@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Job Details</title>
+     <!--   <p:resources />-->
+    </h:head>
+    <h:body>
+        <h2><h:outputText value="Job Details"/></h2>
+        <h:form>
+            <h:panelGrid columns="2" bgcolor="#eff5fa">
+                <h:outputText value="Job ID:"/>
+                <h:inputText id="jobId" value="#{JobMBean.selectedJob.jobId}" readonly="true"/>
+                <h:outputText value="Job Name:"/>
+                <h:inputText id="jobName" value="#{JobMBean.selectedJob.jobName}"/>
+                <h:outputText value="Job Class Name:"/>
+                <h:inputText id="jobClass" value="#{JobMBean.selectedJob.jobClassName}" size="40"/>
+                <h:outputText value="Start Date:"/>
+                <p:calendar id="startDate" value="#{JobMBean.selectedJob.startDate}"/>
+                <h:outputText value="End Date:"/>
+                <p:calendar id="endDate" value="#{JobMBean.selectedJob.endDate}"/>
+                <h:outputText value="Second:"/>
+                <h:inputText id="second" value="#{JobMBean.selectedJob.second}"/>
+                <h:outputText value="Minute:"/>
+                <h:inputText id="minute" value="#{JobMBean.selectedJob.minute}"/>
+                <h:outputText value="Hour:"/>
+                <h:inputText id="hour" value="#{JobMBean.selectedJob.hour}"/>
+                <h:outputText value="Day of Month:"/>
+                <h:inputText id="dayOfMonth" value="#{JobMBean.selectedJob.dayOfMonth}"/>
+                <h:outputText value="Month:"/>
+                <h:inputText id="month" value="#{JobMBean.selectedJob.month}"/>
+                <h:outputText value="Year:"/>
+                <h:inputText id="year" value="#{JobMBean.selectedJob.year}"/>
+                <h:outputText value="Day Of Week:"/>
+                <h:inputText id="dayOfWeek" value="#{JobMBean.selectedJob.dayOfWeek}"/>
+                <h:outputText value="Job Description:"/>
+                <h:inputTextarea cols="40" rows="4" id="description" value="#{JobMBean.selectedJob.description}"/>
+                <h:outputText value="Next Timeout:"/>
+                <h:inputText id="nextTimeout" value="#{JobMBean.selectedJob.nextTimeout}" readonly="true"/>
+            </h:panelGrid>
+            <h:commandButton id="back" value="Back" action="#{JobMBean.gotoListing}"/>
+            <h:commandButton id="update" value="Update" action="#{JobMBean.updateJob}"/>
+            <h:commandButton id="delete" value="Delete" action="#{JobMBean.deleteJob}"/>
+            <h:commandButton id="duplicate" value="Duplicate" action="#{JobMBean.duplicateJob}"/>
+              
+            <h:outputLink id="help" value="http://java.sun.com/javaee/6/docs/tutorial/doc/bnboy.html" target="help">Help</h:outputLink>
+        </h:form>
+        <p:messages showDetail="true"/>
+    </h:body>
+</html>

@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Job List</title>
+     <!--   <p:resources />-->
+    </h:head>
+    <h:body>
+        <h2>Job List</h2>
+        <h:form>
+            <p:dataTable value="#{JobList.jobs}" var="item" paginator="true"
+                         rows="10" id="jobList">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Job ID"/>
+                    </f:facet>
+                    <h:commandLink action="#{JobMBean.setSelectedJob(item)}" value="#{item.jobId}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name"/>
+                    </f:facet>
+                    <h:outputText value="#{item.jobName}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Class"/>
+                    </f:facet>
+                    <h:outputText value="#{item.jobClassName}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Start Date"/>
+                    </f:facet>
+                    <h:outputText value="#{item.startDate}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="End Date"/>
+                    </f:facet>
+                    <h:outputText value="#{item.endDate}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Next Timeout"/>
+                    </f:facet>
+                    <h:outputText value="#{item.nextTimeout}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Expression"/>
+                    </f:facet>
+                    <h:outputText value="#{item.expression}"/>
+                </p:column>
+            </p:dataTable>
+            
+
+            <h:commandButton action="#{JobMBean.gotoNew}" value="New Job"/>
+        </h:form>
+    </h:body>
+</html>
